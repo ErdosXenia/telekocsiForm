@@ -23,5 +23,24 @@ namespace telekocsiForm
             Szemelyek = Convert.ToInt32(a[3]);
             Utvonal = IndulasI + "-" + CelI;
         }
+
+        public int VanAuto(List<Auto> autok)
+        {
+            int i = 0;
+            while (i < autok.Count &&
+                !(Utvonal == autok[i].Utvonal &&
+                  Szemelyek <= autok[i].Ferohely))
+            {
+                i++;
+            }
+            if (i < autok.Count)
+            {
+                return i;
+            }
+            else
+            {
+                return -1;
+            }
+        }
     }
 }
